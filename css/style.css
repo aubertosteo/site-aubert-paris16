@@ -547,6 +547,30 @@ p:last-child {
   position: relative;
 }
 
+.baby-hero-photo {
+  margin: 0 0 1.5rem;
+}
+
+.baby-hero-photo img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  object-position: center 55%;
+  border-radius: var(--radius-md);
+}
+
+.baby-hero-photo figcaption {
+  margin-top: 0.5rem;
+  color: var(--color-text-muted);
+  font-size: 0.72rem;
+  line-height: 1.4;
+}
+
+.baby-hero-photo figcaption a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 .hero-card-badge {
   position: absolute;
   top: -14px;
@@ -1124,4 +1148,3 @@ p:last-child {
     justify-content: space-between;
   }
 }
-
