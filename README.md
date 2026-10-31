@@ -70,3 +70,18 @@ Tous les fichiers HTML sont en texte brut clair et commenté :
 Ce site statique peut être hébergé très facilement et souvent **gratuitement** :
 * **Cloudflare Pages / Netlify / Vercel :** Il suffit de glisser-déposer le dossier `site-osteopathe` pour qu'il soit en ligne en 30 secondes avec certificat SSL (HTTPS) gratuit.
 * **Hébergeur classique (OVH, O2Switch, Hostinger) :** Déposez les fichiers dans le dossier `www` ou `public_html` via FTP (FileZilla).
+
+### Déploiement automatique sur Cloudflare Pages
+
+Le workflow GitHub Actions `.github/workflows/deploy-cloudflare-pages.yml` publie le site sur Cloudflare Pages à chaque push sur `main`. Il n'y a pas de commande de build : les fichiers HTML, CSS et JavaScript sont publiés directement depuis la racine du dépôt.
+
+Pour l'activer :
+
+1. Créez un projet **Pages** nommé `site-aubert-paris16` dans le tableau de bord Cloudflare (Workers & Pages). Le nom doit correspondre à celui utilisé par le workflow.
+2. Créez un jeton API Cloudflare autorisé à déployer sur Cloudflare Pages.
+3. Dans GitHub, ouvrez **Settings → Secrets and variables → Actions → New repository secret** et ajoutez :
+   * `CLOUDFLARE_API_TOKEN` : le jeton API créé à l'étape précédente.
+   * `CLOUDFLARE_ACCOUNT_ID` : l'identifiant du compte Cloudflare, disponible dans le tableau de bord.
+4. Envoyez vos changements sur la branche `main`. Le déploiement est également lançable manuellement depuis l'onglet **Actions** du dépôt.
+
+Configurez ensuite votre domaine personnalisé dans les paramètres du projet Pages Cloudflare.
